@@ -45,6 +45,7 @@ body {
   height: 50px;
   width: 50px;
   border-radius: 8px;
+  background-color: lightpink;
 }
 
 .primaryButtons {
@@ -72,6 +73,7 @@ body {
   width: 70px;
   font-size: 24px;
   border-radius: 10px;
+  background-color: lightsteelblue;
 }
 
 .operatorContainer {
@@ -89,4 +91,5 @@ body {
   width: 70px;
   font-size: 24px;
   border-radius: 10px;
+  background-color: lightgreen;
 }
