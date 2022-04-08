@@ -74,7 +74,7 @@ body {
   border-radius: 10px;
 }
 
-.operators {
+.operatorContainer {
   display: flex;
   width: 100px;
   border: 1px dotted;
