@@ -35,7 +35,7 @@ body {
   display: flex;
   justify-content: flex-end;
   height: 50px;
-  margin: 1px 20px;
+  margin: auto 20px;
   border: 1px dotted;
   border-color: black;
   gap: 6px;
@@ -44,4 +44,12 @@ body {
 .secondaryButtons button {
   width: 50px;
   border-radius: 8px;
+}
+
+.primaryButtons {
+  display: flex;
+  flex: 1;
+  border: 1px dotted;
+  border-color: black;
+  margin: 10px 20px;
 }
