@@ -21,7 +21,7 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   height: 100px;
-  border: 2px solid;
+  border: 1px solid;
   border-color: black;
   margin: 20px;
   
@@ -29,4 +29,19 @@ body {
   font-size: 36px;
   font-weight: bold;
   text-align: center;
+}
+
+.secondaryButtons {
+  display: flex;
+  justify-content: flex-end;
+  height: 50px;
+  margin: 1px 20px;
+  border: 1px dotted;
+  border-color: black;
+  gap: 6px;
+}
+
+.secondaryButtons button {
+  width: 50px;
+  border-radius: 8px;
 }
