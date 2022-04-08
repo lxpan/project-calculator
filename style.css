@@ -41,7 +41,8 @@ body {
   gap: 6px;
 }
 
-button {
+.secondaryButtons button {
+  height: 50px;
   width: 50px;
   border-radius: 8px;
 }
@@ -57,9 +58,20 @@ button {
 
 .digits {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   width: 250px;
   border: 1px dotted;
   border-color: black;
+  gap: 6px;
+}
+
+.digits button {
+  height: 50px;
+  width: 70px;
+  font-size: 24px;
+  border-radius: 10px;
 }
 
 .operators {
