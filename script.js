@@ -28,8 +28,13 @@ function setupDigitListeners() {
     console.log(digits);
 }
 
+function updateDisplayArea(string) {
+    display = document.querySelector('.display')
+    display.textContent += string;
+}
+
 function digitButton(evt) {
-    displayValue = evt.target.textContent;
+    displayValue = updateDisplayArea(evt.target.textContent);
     console.log(displayValue);
 }
 
@@ -40,5 +45,5 @@ function setupDigitListeners() {
     });
 }
 
-let displayValue;
+let displayValue = '';
 setupDigitListeners();
