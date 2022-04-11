@@ -59,6 +59,11 @@ function operatorButton(evt) {
 }
 
 function equals() {
+    // ensure nothing is called if no operands are inputted
+    if(!firstOperand) {
+        return;
+    }
+
     secondOperand = calculationValue;
     console.log(`1st operand: ${firstOperand}`);
     // console.log(operatorFunc);
@@ -67,8 +72,6 @@ function equals() {
     let solution = operate(operatorFunc, +firstOperand, +secondOperand);
     console.log(`Solution: ${solution}`)
 
-    updateDisplayArea(solution);
-    
     // remember solution to allow for further calculations
     firstOperand = solution;
     displayValue = solution;
