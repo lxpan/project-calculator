@@ -22,3 +22,23 @@ function divide(a, b) {
 function operate(operator, a, b) {
     return operator(a, b);
 }
+
+function setupDigitListeners() {
+    const digits = document.querySelectorAll('.digitContainer button');
+    console.log(digits);
+}
+
+function digitButton(evt) {
+    displayValue = evt.target.textContent;
+    console.log(displayValue);
+}
+
+function setupDigitListeners() {
+    let digits = document.querySelectorAll('.digitContainer button');
+    digits.forEach(digit => {
+        digit.addEventListener('click', digitButton);
+    });
+}
+
+let displayValue;
+setupDigitListeners();
