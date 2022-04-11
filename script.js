@@ -23,11 +23,6 @@ function operate(operator, a, b) {
     return operator(a, b);
 }
 
-function setupDigitListeners() {
-    const digits = document.querySelectorAll('.digitContainer button');
-    console.log(digits);
-}
-
 function updateDisplayArea(string) {
     display = document.querySelector('.display')
     display.textContent += string;
