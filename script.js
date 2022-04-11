@@ -51,15 +51,6 @@ function operatorButton(evt) {
     displayValue += operatorSymbol;
     updateDisplayArea(displayValue);
 
-    // if(firstOperand && operatorFunc) {
-    //     secondOperand += evt.target.textContent;
-    //     displayValue += evt.target.textContent;
-    //     updateDisplayArea(displayValue);
-    // }
-
-    // console.log(firstOperand);
-    // console.log(operator);
-
     // the operator function that will be called in operate()
     operatorFunc = window[operator];
     calculationValue = '';
@@ -67,9 +58,9 @@ function operatorButton(evt) {
 
 function equals(evt) {
     secondOperand = calculationValue;
-    console.log(`First operand: ${firstOperand}`);
+    console.log(`1st operand: ${firstOperand}`);
     // console.log(operatorFunc);
-    console.log(secondOperand)
+    console.log(`2nd operand: ${secondOperand}`);
 
     let solution = operate(operatorFunc, +firstOperand, +secondOperand);
     console.log(`Solution: ${solution}`)
