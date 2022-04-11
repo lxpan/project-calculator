@@ -34,6 +34,7 @@ function clear() {
 
 function updateDisplayArea(string) {
     display = document.querySelector('.display')
+
     display.textContent = string;
 }
 
@@ -44,7 +45,7 @@ function digitButton(evt) {
 }
 
 function operatorButton(evt) {
-    let operatorName = evt.target.classList[0];
+    operatorName = evt.target.classList[0];
     console.log(operatorName);
     let operatorSymbol = evt.target.textContent;
 
@@ -66,24 +67,34 @@ function equals() {
 
     secondOperand = calculationValue;
 
+    console.log(secondOperand);
+    console.log(operatorName);
+
+    // if(secondOperand == 0 && operatorName == 'divide') {
+    //     updateDisplayArea('Dividing by zero is a big no no!');
+    //     throw('Cannot divide by zero!');
+    // }
 
     // console.log(`1st operand: ${firstOperand}`);
     // console.log(operatorFunc);
     // console.log(`2nd operand: ${secondOperand}`);
 
     let solution = operate(operatorFunc, +firstOperand, +secondOperand);
+    
     // console.log(`Solution: ${solution}`)
-
-    if(solution.toString().length > 10) {
-        updateDisplayArea(solution.toFixed(10));
-    } else {
-        updateDisplayArea(solution);
-    }
     
     // remember solution to allow for further calculations
     firstOperand = solution;
     displayValue = solution;
     calculationValue = solution;
+
+    if(solution.toString().length > 10) {
+        solutionTruncated = solution.toFixed(8)
+        updateDisplayArea(solutionTruncated);
+        displayValue = solutionTruncated;
+    } else {
+        display.textContent = string;
+    }
 }
 
 function setupDigitListeners() {
