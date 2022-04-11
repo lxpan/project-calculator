@@ -44,8 +44,8 @@ function digitButton(evt) {
 }
 
 function operatorButton(evt) {
-    let operator = evt.target.classList[0];
-    console.log(operator);
+    let operatorName = evt.target.classList[0];
+    console.log(operatorName);
     let operatorSymbol = evt.target.textContent;
 
     firstOperand = calculationValue;
@@ -54,7 +54,7 @@ function operatorButton(evt) {
     updateDisplayArea(displayValue);
 
     // the operator function that will be called in operate()
-    operatorFunc = window[operator];
+    operatorFunc = window[operatorName];
     calculationValue = '';
 }
 
@@ -65,12 +65,14 @@ function equals() {
     }
 
     secondOperand = calculationValue;
-    console.log(`1st operand: ${firstOperand}`);
+
+
+    // console.log(`1st operand: ${firstOperand}`);
     // console.log(operatorFunc);
-    console.log(`2nd operand: ${secondOperand}`);
+    // console.log(`2nd operand: ${secondOperand}`);
 
     let solution = operate(operatorFunc, +firstOperand, +secondOperand);
-    console.log(`Solution: ${solution}`)
+    // console.log(`Solution: ${solution}`)
 
     if(solution.toString().length > 10) {
         updateDisplayArea(solution.toFixed(10));
@@ -103,6 +105,7 @@ let displayValue = '';
 let calculationValue = '';
 let firstOperand;
 let secondOperand;
+let operatorName;
 let operatorFunc;
 
 setupDigitListeners();
