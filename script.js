@@ -72,6 +72,12 @@ function equals() {
     let solution = operate(operatorFunc, +firstOperand, +secondOperand);
     console.log(`Solution: ${solution}`)
 
+    if(solution.toString().length > 10) {
+        updateDisplayArea(solution.toFixed(10));
+    } else {
+        updateDisplayArea(solution);
+    }
+    
     // remember solution to allow for further calculations
     firstOperand = solution;
     displayValue = solution;
