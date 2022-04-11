@@ -90,7 +90,7 @@ function equals() {
         updateDisplayArea(solutionTruncated);
         displayValue = solutionTruncated;
     } else {
-        display.textContent = string;
+        updateDisplayArea(solution);
     }
 }
 
