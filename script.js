@@ -23,6 +23,15 @@ function operate(operator, a, b) {
     return operator(a, b);
 }
 
+function clear() {
+    firstOperand = '';
+    secondOperand = '';
+    displayValue = '';
+    calculationValue = '';
+    operatorFunc = undefined;
+    updateDisplayArea('');
+}
+
 function updateDisplayArea(string) {
     display = document.querySelector('.display')
     display.textContent = string;
@@ -87,3 +96,6 @@ setupOperatorListeners();
 
 let equalButton = document.querySelector('.equals');
 equalButton.addEventListener('click', equals);
+
+let clearButton = document.querySelector('.clear');
+clearButton.addEventListener('click', clear);
