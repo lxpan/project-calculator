@@ -67,18 +67,8 @@ function equals() {
     }
 
     secondOperand = calculationValue;
-
     console.log(secondOperand);
     console.log(operatorName);
-
-    // if(secondOperand == 0 && operatorName == 'divide') {
-    //     updateDisplayArea('Dividing by zero is a big no no!');
-    //     throw('Cannot divide by zero!');
-    // }
-
-    // console.log(`1st operand: ${firstOperand}`);
-    // console.log(operatorFunc);
-    // console.log(`2nd operand: ${secondOperand}`);
 
     let solution = operate(operatorFunc, +firstOperand, +secondOperand);
     
