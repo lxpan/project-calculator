@@ -68,6 +68,11 @@ function equals() {
     console.log(`Solution: ${solution}`)
 
     updateDisplayArea(solution);
+    
+    // remember solution to allow for further calculations
+    firstOperand = solution;
+    displayValue = solution;
+    calculationValue = solution;
 }
 
 function setupDigitListeners() {
