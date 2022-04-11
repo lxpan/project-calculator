@@ -49,7 +49,7 @@ function operatorButton(evt) {
     calculationValue = '';
 }
 
-function equals(evt) {
+function equals() {
     secondOperand = calculationValue;
     console.log(`1st operand: ${firstOperand}`);
     // console.log(operatorFunc);
@@ -59,8 +59,6 @@ function equals(evt) {
     console.log(`Solution: ${solution}`)
 
     updateDisplayArea(solution);
-
-    
 }
 
 function setupDigitListeners() {
