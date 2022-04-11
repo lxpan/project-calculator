@@ -17,7 +17,7 @@ body {
   border-radius: 15px;
 }
 
-.screen {
+.display {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
