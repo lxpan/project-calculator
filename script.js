@@ -34,7 +34,6 @@ function clear() {
 
 function updateDisplayArea(string) {
     display = document.querySelector('.display')
-
     display.textContent = string;
 }
 
@@ -80,8 +79,6 @@ function equals() {
     // console.log(`2nd operand: ${secondOperand}`);
 
     let solution = operate(operatorFunc, +firstOperand, +secondOperand);
-    
-    // console.log(`Solution: ${solution}`)
     
     // remember solution to allow for further calculations
     firstOperand = solution;
