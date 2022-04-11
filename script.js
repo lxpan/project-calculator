@@ -3,6 +3,8 @@ Project: Calculator
 Author: Luoxi Pan
 */
 
+const OPERATOR_CLASSLIST_IDX = 0;
+
 function add(a, b) {
     return a + b;
 }
@@ -44,7 +46,7 @@ function digitButton(evt) {
 }
 
 function operatorButton(evt) {
-    operatorName = evt.target.classList[0];
+    operatorName = evt.target.classList[OPERATOR_CLASSLIST_IDX];
     console.log(operatorName);
     let operatorSymbol = evt.target.textContent;
 
