@@ -41,8 +41,17 @@ function updateDisplayArea(string) {
 }
 
 function digitButton(evt) {
-    displayValue += evt.target.textContent;
-    calculationValue += evt.target.textContent;
+    let buttonText = evt.target.textContent;
+    // disable decimal button for first operand
+    if(!firstOperand && displayValue.includes('.') && buttonText == '.') {
+        return;
+    } // disable decimal button for second operand
+    else if(calculationValue.includes('.') && buttonText == '.') {
+        return;
+    }
+
+    displayValue += buttonText;
+    calculationValue += buttonText;
     updateDisplayArea(displayValue);
 }
 
