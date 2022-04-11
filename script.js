@@ -34,13 +34,6 @@ function digitButton(evt) {
     updateDisplayArea(displayValue);
 }
 
-function setupDigitListeners() {
-    let digits = document.querySelectorAll('.digitContainer button');
-    digits.forEach(digit => {
-        digit.addEventListener('click', digitButton);
-    });
-}
-
 function operatorButton(evt) {
     let operator = evt.target.classList[0];
     console.log(operator);
@@ -70,12 +63,20 @@ function equals(evt) {
     
 }
 
+function setupDigitListeners() {
+    let digits = document.querySelectorAll('.digitContainer button');
+    digits.forEach(digit => {
+        digit.addEventListener('click', digitButton);
+    });
+}
+
 function setupOperatorListeners() {
     let operators = document.querySelectorAll('.operatorContainer .operator');
     operators.forEach(operator => {
         operator.addEventListener('click', operatorButton);
     });
 }
+
 
 let displayValue = '';
 let calculationValue = '';
