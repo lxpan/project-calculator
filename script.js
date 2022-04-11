@@ -4,6 +4,7 @@ Author: Luoxi Pan
 */
 
 const OPERATOR_CLASSLIST_IDX = 0;
+const MAX_DISPLAY_LENGTH = 8;
 
 function add(a, b) {
     return a + b;
@@ -77,8 +78,8 @@ function equals() {
     displayValue = solution;
     calculationValue = solution;
 
-    if(solution.toString().length > 10) {
-        solutionTruncated = solution.toFixed(8)
+    if(solution.toString().length > MAX_DISPLAY_LENGTH) {
+        solutionTruncated = solution.toFixed(MAX_DISPLAY_LENGTH)
         updateDisplayArea(solutionTruncated);
         displayValue = solutionTruncated;
     } else {
