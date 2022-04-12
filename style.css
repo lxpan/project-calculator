@@ -15,7 +15,6 @@ body {
   border: 2px solid;
   border-color: black;
   border-radius: 15px;
-  background-color: lightyellow;
 }
 
 .display {
@@ -27,7 +26,6 @@ body {
   border-color: black;
   padding: 5px;
   margin: 20px;
-  background-color: lightblue;
   
   font-family: 'Courier New', Courier, monospace;
   font-size: 36px;
