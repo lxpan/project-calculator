@@ -5,7 +5,7 @@ Author: Luoxi Pan
 
 const OPERATOR_CLASSLIST_IDX = 0;
 const MAX_DISPLAY_LENGTH = 8;
-const ALLOWED_KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.', '+', '-', '/', '*', 'Enter'];
+const ALLOWED_KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.', '+', '-', '/', '*', 'Enter', 'Backspace'];
 const DIGITS_BUTTON = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '0', '.', '±'];
 
 function add(a, b) {
@@ -101,6 +101,12 @@ function equals() {
     }
 }
 
+function triggerButtonUsingKeypress(e) {
+    if(ALLOWED_KEYS.includes(e.key.toString())) {
+        document.getElementById(e.key).click();
+    }
+}
+
 function setupDigitListeners() {
     let digits = document.querySelectorAll('.digitContainer button');
     digits.forEach(digit => {
@@ -144,3 +150,5 @@ equalButton.addEventListener('click', equals);
 
 let clearButton = document.querySelector('.clear');
 clearButton.addEventListener('click', clear);
+
+document.addEventListener('keydown', triggerButtonUsingKeypress);
