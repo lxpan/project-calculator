@@ -7,6 +7,7 @@ const OPERATOR_CLASSLIST_IDX = 0;
 const MAX_DISPLAY_LENGTH = 8;
 const ALLOWED_KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.', '+', '-', '/', '*', 'Enter', 'Backspace'];
 const DIGITS_BUTTON = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '0', '.', '±'];
+const DISABLED_BUTTON = ['±', '(', ')', '%'];
 
 function add(a, b) {
     return a + b;
@@ -49,6 +50,9 @@ function digitButton(evt) {
         return;
     } // disable decimal button for second operand
     else if(calculationValue.includes('.') && buttonText == '.') {
+        return;
+    }
+    else if(DISABLED_BUTTON.includes(buttonText)) {
         return;
     }
 
@@ -125,11 +129,21 @@ function createDigitButtons() {
     let digitContainer = document.querySelector('.digitContainer');
 
     for(let i = 0; i < DIGITS_BUTTON.length; i++) {
+        let char = DIGITS_BUTTON[i]
         let button = document.createElement('button');
-        button.setAttribute('id', DIGITS_BUTTON[i]);
-        button.textContent = DIGITS_BUTTON[i];
+        button.textContent = char;
+        button.setAttribute('id', char);
         digitContainer.appendChild(button);
     }
+}
+
+function applyDisabledButtonClass() {
+    buttons = document.querySelectorAll('button')
+    buttons.forEach(button => {
+        if(DISABLED_BUTTON.includes(button.textContent)) {
+            button.setAttribute('class', 'disabled');
+        }
+    })
 }
 
 
@@ -141,6 +155,7 @@ let operatorName;
 let operatorFunc;
 
 createDigitButtons();
+applyDisabledButtonClass();
 setupDigitListeners();
 setupOperatorListeners();
 
