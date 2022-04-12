@@ -5,6 +5,8 @@ Author: Luoxi Pan
 
 const OPERATOR_CLASSLIST_IDX = 0;
 const MAX_DISPLAY_LENGTH = 8;
+const ALLOWED_KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.', '+', '-', '/', '*', 'Enter'];
+const DIGITS_BUTTON = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '0', '.', '±'];
 
 function add(a, b) {
     return a + b;
@@ -113,6 +115,17 @@ function setupOperatorListeners() {
     });
 }
 
+function createDigitButtons() {
+    let digitContainer = document.querySelector('.digitContainer');
+
+    for(let i = 0; i < DIGITS_BUTTON.length; i++) {
+        let button = document.createElement('button');
+        button.setAttribute('id', DIGITS_BUTTON[i]);
+        button.textContent = DIGITS_BUTTON[i];
+        digitContainer.appendChild(button);
+    }
+}
+
 
 let displayValue = '';
 let calculationValue = '';
@@ -121,8 +134,10 @@ let secondOperand;
 let operatorName;
 let operatorFunc;
 
+createDigitButtons();
 setupDigitListeners();
 setupOperatorListeners();
+
 
 let equalButton = document.querySelector('.equals');
 equalButton.addEventListener('click', equals);
