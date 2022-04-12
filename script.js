@@ -75,6 +75,9 @@ function equals() {
     if(!firstOperand) {
         return;
     }
+    else if(!calculationValue) {
+        return;
+    }
 
     secondOperand = calculationValue;
     console.log(secondOperand);
