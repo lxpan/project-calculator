@@ -75,6 +75,18 @@ body {
   background-color: lightsteelblue;
 }
 
+.digitContainer button:hover {
+  background-color: lightcyan;
+}
+
+.operatorContainer button:hover {
+  background-color: palegreen;
+}
+
+.secondaryButtons button:hover {
+  background-color: mistyrose;
+}
+
 .operatorContainer {
   display: flex;
   flex-direction: column;
