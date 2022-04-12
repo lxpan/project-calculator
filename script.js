@@ -5,7 +5,7 @@ Author: Luoxi Pan
 
 const OPERATOR_CLASSLIST_IDX = 0;
 const MAX_DISPLAY_LENGTH = 8;
-const ALLOWED_KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.', '+', '-', '/', '*', 'Enter', 'Backspace'];
+const ALLOWED_KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.', '+', '-', '/', '*', 'Enter'];
 const DIGITS_BUTTON = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '0', '.', '±'];
 const DISABLED_BUTTON = ['±', '(', ')', '%'];
 
@@ -146,6 +146,16 @@ function applyDisabledButtonClass() {
     })
 }
 
+function backspace(e) {
+    if(e.key == 'Backspace') {
+        // console.log(e.keycode);
+        numberString = displayValue.toString();
+        displayValue = numberString.slice(0, numberString.length - 1);
+        calculationValue = displayValue;
+        updateDisplayArea(displayValue);
+    }
+}
+
 
 let displayValue = '';
 let calculationValue = '';
@@ -167,3 +177,4 @@ let clearButton = document.querySelector('.clear');
 clearButton.addEventListener('click', clear);
 
 document.addEventListener('keydown', triggerButtonUsingKeypress);
+document.addEventListener('keydown', backspace);
