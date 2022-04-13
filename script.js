@@ -71,7 +71,10 @@ function operatorButton(evt) {
     operatorName = evt.target.classList[OPERATOR_CLASSLIST_IDX];
     let operatorSymbol = evt.target.textContent;
 
-    firstOperand = calculationValue;
+    // if calculationValue wasn't cleared by backspace
+    if(calculationValue) {
+        firstOperand = calculationValue;
+    }
     
     displayValue += operatorSymbol;
     updateDisplayArea(displayValue);
@@ -123,7 +126,7 @@ function triggerButtonUsingKeypress(e) {
     if(e.key == 'Backspace') {
         numberString = displayValue.toString();
         displayValue = numberString.slice(0, numberString.length - 1);
-        calculationValue = displayValue;
+        calculationValue = calculationValue.toString().slice(0, calculationValue.length - 1);
         updateDisplayArea(displayValue);
     }
     else if(ALLOWED_KEYS.includes(e.key.toString())) {
