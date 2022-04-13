@@ -29,13 +29,15 @@ function operate(operator, a, b) {
     return operator(a, b);
 }
 
-function clear() {
+function clear(evt) {
     firstOperand = '';
     secondOperand = '';
     displayValue = '';
     calculationValue = '';
     operatorFunc = undefined;
     updateDisplayArea('');
+    // remove focus on button to prevent 'Enter' key from firing button
+    evt.target.blur();
 }
 
 function updateDisplayArea(string) {
@@ -45,6 +47,9 @@ function updateDisplayArea(string) {
 
 function digitButton(evt) {
     let buttonText = evt.target.textContent;
+    // remove focus on button to prevent 'Enter' key from firing button
+    evt.target.blur();
+
     // disable decimal button for first operand
     if(!firstOperand && displayValue.includes('.') && buttonText == '.') {
         return;
@@ -73,6 +78,9 @@ function operatorButton(evt) {
     // the operator function that will be called in operate()
     operatorFunc = window[operatorName];
     calculationValue = '';
+
+    // remove focus on button to prevent 'Enter' key from firing button
+    evt.target.blur();
 }
 
 function equals() {
