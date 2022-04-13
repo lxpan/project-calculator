@@ -106,7 +106,13 @@ function equals() {
 }
 
 function triggerButtonUsingKeypress(e) {
-    if(ALLOWED_KEYS.includes(e.key.toString())) {
+    if(e.key == 'Backspace') {
+        numberString = displayValue.toString();
+        displayValue = numberString.slice(0, numberString.length - 1);
+        calculationValue = displayValue;
+        updateDisplayArea(displayValue);
+    }
+    else if(ALLOWED_KEYS.includes(e.key.toString())) {
         document.getElementById(e.key).click();
     }
 }
@@ -146,16 +152,6 @@ function applyDisabledButtonClass() {
     })
 }
 
-function backspace(e) {
-    if(e.key == 'Backspace') {
-        // console.log(e.keycode);
-        numberString = displayValue.toString();
-        displayValue = numberString.slice(0, numberString.length - 1);
-        calculationValue = displayValue;
-        updateDisplayArea(displayValue);
-    }
-}
-
 
 let displayValue = '';
 let calculationValue = '';
@@ -177,4 +173,3 @@ let clearButton = document.querySelector('.clear');
 clearButton.addEventListener('click', clear);
 
 document.addEventListener('keydown', triggerButtonUsingKeypress);
-document.addEventListener('keydown', backspace);
