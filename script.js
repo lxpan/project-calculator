@@ -55,7 +55,7 @@ function digitButton(evt) {
     if(!firstOperand && displayValue.includes('.') && buttonText == '.') {
         return;
     } // disable decimal button for second operand
-    else if(calculationValue.includes('.') && buttonText == '.') {
+    else if(calculationValue.toString().includes('.') && buttonText == '.') {
         return;
     }
     else if(DISABLED_BUTTON.includes(buttonText)) {
