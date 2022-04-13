@@ -36,6 +36,7 @@ function clear(evt) {
     calculationValue = '';
     operatorFunc = undefined;
     updateDisplayArea('');
+    equalFiredAlready = false;
     // remove focus on button to prevent 'Enter' key from firing button
     evt.target.blur();
 }
@@ -79,6 +80,9 @@ function operatorButton(evt) {
     operatorFunc = window[operatorName];
     calculationValue = '';
 
+    // prevent multiple 'Enter' calculations
+    equalFiredAlready = false;
+
     // remove focus on button to prevent 'Enter' key from firing button
     evt.target.blur();
 }
@@ -92,21 +96,26 @@ function equals() {
         return;
     }
 
-    secondOperand = calculationValue;
+    // prevent multiple 'Equals' from triggering again
+    if(!equalFiredAlready) {
+        secondOperand = calculationValue;
 
-    let solution = operate(operatorFunc, +firstOperand, +secondOperand);
+        let solution = operate(operatorFunc, +firstOperand, +secondOperand);
+        
+        // remember solution to allow for further calculations
+        firstOperand = solution;
+        displayValue = solution;
+        calculationValue = solution;
+
+        equalFiredAlready = true;
     
-    // remember solution to allow for further calculations
-    firstOperand = solution;
-    displayValue = solution;
-    calculationValue = solution;
-
-    if(solution.toString().length > MAX_DISPLAY_LENGTH) {
-        solutionTruncated = solution.toFixed(MAX_DISPLAY_LENGTH)
-        updateDisplayArea(solutionTruncated);
-        displayValue = solutionTruncated;
-    } else {
-        updateDisplayArea(solution);
+        if(solution.toString().length > MAX_DISPLAY_LENGTH) {
+            solutionTruncated = solution.toFixed(MAX_DISPLAY_LENGTH)
+            updateDisplayArea(solutionTruncated);
+            displayValue = solutionTruncated;
+        } else {
+            updateDisplayArea(solution);
+        }
     }
 }
 
@@ -164,6 +173,7 @@ let firstOperand;
 let secondOperand;
 let operatorName;
 let operatorFunc;
+let equalFiredAlready;
 
 createDigitButtons();
 applyDisabledButtonClass();
