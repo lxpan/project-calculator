@@ -63,7 +63,6 @@ function digitButton(evt) {
 
 function operatorButton(evt) {
     operatorName = evt.target.classList[OPERATOR_CLASSLIST_IDX];
-    console.log(operatorName);
     let operatorSymbol = evt.target.textContent;
 
     firstOperand = calculationValue;
@@ -86,8 +85,6 @@ function equals() {
     }
 
     secondOperand = calculationValue;
-    console.log(secondOperand);
-    console.log(operatorName);
 
     let solution = operate(operatorFunc, +firstOperand, +secondOperand);
     
